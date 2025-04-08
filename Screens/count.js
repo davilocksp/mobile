@@ -6,11 +6,11 @@ export default function Count(){
     const [contador, setContador] = useState(0);
 
     function Aumentar(){
-        setContador (contador + 1);
+        setContador (contador + 2);
     }
     function Diminuir(){
         if (contador > 0){
-        setContador (contador - 1);
+        setContador (contador - 2);
         }
     }
 
