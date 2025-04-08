@@ -1,20 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import Login from "./Screens/Login";
+import Home from "./Screens/Home";
+import Feed from "./Screens/Feed";
+import Count from "./Screens/count";
 
+import 'react-native-gesture-handler';
+import { NavigationContainer } from "@react-navigation/native";
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from "@react-navigation/stack";
+import AntDesign from '@expo/vector-icons/AntDesign';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+
+function BottomTabs(){
+  const BottomTab = createBottomTabNavigator();
+
+  return(
+    <BottomTab.Navigator>
+      <BottomTab.Screen name = "HomeTab" component={Home}
+      options={{tabBarIcon: () => <AntDesign name="home" size={24} color="black" />}}
+      />
+      <BottomTab.Screen name = "FeedTab" component={Feed}
+      options={{tabBarIcon: () => <FontAwesome name="feed" size={24} color="black" />}}
+      />
+      <BottomTab.Screen name = "CountTab" component={Count}
+      options={{tabBarIcon: () => <AntDesign name="home" size={24} color="black" />}}
+      />
+    </BottomTab.Navigator>
+  )
+}
 export default function App() {
+  const Stack = createStackNavigator();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name = "TelaLogin" component={Login}
+        options={{tabBarIcon: () => <AntDesign name="home" size={24} color="black" />}}
+        />
+        <Stack.Screen options = {{headerShown: false}} name ="Home" component= {BottomTabs} />
+      </Stack.Navigator>
+      
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
