@@ -25,8 +25,8 @@ function BottomTabs(){
       <BottomTab.Screen name = "CountTab" component={Count}
       options={{tabBarIcon: () => <AntDesign name="home" size={24} color="black" />}}
       />
-      <BottomTab.Screen name = "CardápioTab" component={Produto}
-      options={{tabBarIcon: () => <AntDesign name="produto" size={24} color="black" />}}
+      <BottomTab.Screen name = "ProductTab" component={Produto}
+      options={{tabBarIcon: () => <AntDesign name="shoppingcart" size={24} color="black" />}}
       />
     </BottomTab.Navigator>
   )
